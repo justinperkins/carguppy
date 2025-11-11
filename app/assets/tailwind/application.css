@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@layer base {
+  a {
+    @apply text-emerald-600 underline; /* Sets default link color to blue-600 and adds an underline */
+  }
+
+  /* You can also define hover, focus, and active states globally */
+  a:hover {
+    @apply text-emerald-800; /* Darker blue on hover */
+  }
+
+  a:focus {
+    @apply outline-none ring-1; /* Focus ring for accessibility */
+  }
+
+  a:active {
+    @apply text-emerald-900; /* Even darker blue when active */
+  }
+}

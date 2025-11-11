@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Carguppy" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-stone-200 dark:bg-gray-800 text-gray-900 dark:text-white">
+    <main class="container mx-auto mt-8 px-5">
+      <div class="flex">
+        <h1 class="text-3xl font-bold flex-auto">
+          Mobile Vehicle Pre-Purchase Inspections
+        </h1>
+        <div class="w-36 text-right text-xs">
+          <a href="tel:2695555555">269-555-5555</a>
+          <a href="mailto:ppi@carguppy.com">ppi@carguppy.com</a>
+        </div>
+      </div>
+      <h2 class="text-xl mt-1">
+        Performing thorough PPIs to give you confidence in your vehicle purchases
+      </h2>
+      <h3 class="text-sm mt-2 pt-2 border-t border-sky-500">
+        Serving Berrien County, Michigan &amp; surrounding areas in Southwest Michigan & Northwest Indiana
+      </h3>
+      <ul class="flex my-4 pb-2 border-b-2">
+        <li class="<%= nav_item_classes %>"><%= link_to 'Home', root_path, class: nav_item_link_classes(root_path) %></li>
+        <li class="<%= nav_item_classes %>"><%= link_to 'Book an Appointment', new_booking_path, class: nav_item_link_classes(new_booking_path) %></li>
+        <li class="<%= nav_item_classes %>"><%= link_to 'Services & Rates', services_and_rates_path, class: nav_item_link_classes(services_and_rates_path) %></li>
+        <li class="<%= nav_item_classes %>"><%= link_to 'About Me', about_me_path, class: nav_item_link_classes(about_me_path) %></li>
+      </ul>
+
+      <div class="my-4">
+        <%= yield %>
+      </div>
+    </main>
+  </body>
+</html>

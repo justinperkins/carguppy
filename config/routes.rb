@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root 'pages#home'
-  get 'services_and_rates' => 'pages#services_and_rates', as: :services_and_rates
-  get 'about_me' => 'pages#about_me', as: :about_me
+  root "pages#home"
+  get "services_and_rates" => "pages#services_and_rates", as: :services_and_rates
+  get "about_me" => "pages#about_me", as: :about_me
 
-  resources :bookings, only: [:new, :create]
+  resources :bookings, only: [ :new, :create ]
 end

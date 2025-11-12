@@ -13,19 +13,19 @@ if Rails.env.production? || Rails.env.staging?
   Rails.application.configure do
     config.action_mailer.delivery_method = :mailgun
     config.action_mailer.mailgun_settings = {
-      api_key: ENV['MAILGUN_API_KEY'],
-      domain: ENV['MAILGUN_DOMAIN'],
+      api_key: ENV["MAILGUN_API_KEY"],
+      domain: ENV["MAILGUN_DOMAIN"],
       # Use EU endpoint if needed: 'https://api.eu.mailgun.net'
-      api_host: ENV.fetch('MAILGUN_API_BASE_URL', 'https://api.mailgun.net')
+      api_host: ENV.fetch("MAILGUN_API_BASE_URL", "https://api.mailgun.net")
     }
   end
 
   # Initialize Mailgun client for direct API usage if needed
-  if ENV['MAILGUN_API_KEY'].present? && ENV['MAILGUN_DOMAIN'].present?
+  if ENV["MAILGUN_API_KEY"].present? && ENV["MAILGUN_DOMAIN"].present?
     begin
       MAILGUN_CLIENT = Mailgun::Client.new(
-        ENV['MAILGUN_API_KEY'],
-        ENV.fetch('MAILGUN_API_BASE_URL', 'https://api.mailgun.net')
+        ENV["MAILGUN_API_KEY"],
+        ENV.fetch("MAILGUN_API_BASE_URL", "https://api.mailgun.net")
       )
       Rails.logger.info "Mailgun client initialized successfully"
     rescue => e

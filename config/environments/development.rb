@@ -33,7 +33,7 @@ Rails.application.configure do
 
   # Configure mailer for development - log emails instead of sending
   config.action_mailer.delivery_method = :file
-  config.action_mailer.file_settings = { location: Rails.root.join('tmp/mails') }
+  config.action_mailer.file_settings = { location: Rails.root.join("tmp/mails") }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
 

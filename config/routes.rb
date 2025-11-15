@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   get "services_and_rates" => "pages#services_and_rates", as: :services_and_rates
   get "about_me" => "pages#about_me", as: :about_me
 
-  get "email_test" => "pages#email_test", as: :email_test
-
   resources :bookings, only: [ :new, :create ]
+
+  resource :admin, only: [] do
+    collection do
+      get 'email_test'
+    end
+  end
 end

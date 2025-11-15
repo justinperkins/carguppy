@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [ :new, :create ]
 
   resource :admin, only: [] do
-    collection do
+    member do
       get 'email_test'
     end
   end

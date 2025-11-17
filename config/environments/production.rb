@@ -58,20 +58,20 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :mailgun
 
-  # Mailgun configuration (credentials set in initializer)
-  mailgun_api_key = ENV["MAILGUN_API_KEY"]
-  mailgun_domain = ENV["MAILGUN_DOMAIN"]
-  # if mailgun_api_key.nil? || mailgun_api_key.empty?
-  #   raise "Missing required environment variable: MAILGUN_API_KEY"
-  # end
-  # if mailgun_domain.nil? || mailgun_domain.empty?
-  #   raise "Missing required environment variable: MAILGUN_DOMAIN"
-  # end
-  config.action_mailer.mailgun_settings = {
-    api_key: mailgun_api_key,
-    domain: mailgun_domain,
-    api_host: ENV.fetch("MAILGUN_API_BASE_URL", "https://api.mailgun.net")
-  }
+  # # Mailgun configuration (credentials set in initializer)
+  # mailgun_api_key = ENV["MAILGUN_API_KEY"]
+  # mailgun_domain = ENV["MAILGUN_DOMAIN"]
+  # # if mailgun_api_key.nil? || mailgun_api_key.empty?
+  # #   raise "Missing required environment variable: MAILGUN_API_KEY"
+  # # end
+  # # if mailgun_domain.nil? || mailgun_domain.empty?
+  # #   raise "Missing required environment variable: MAILGUN_DOMAIN"
+  # # end
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: mailgun_api_key,
+  #   domain: mailgun_domain,
+  #   api_host: ENV.fetch("MAILGUN_API_BASE_URL", "https://api.mailgun.net")
+  # }
 
   # Set host to be used by links generated in mailer templates.
   # Update this to your actual domain

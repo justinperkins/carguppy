@@ -11,6 +11,7 @@ class AdminsController < ApplicationController
       if Rails.env.local?
         u == 'admin' && p == 'password'
       else
+        Rails.logger.info "user #{ENV.fetch("ADMIN_USER", "")} and pass #{ENV.fetch("ADMIN_PASS", "")}"
         u == ENV.fetch("ADMIN_USER", "") && p == ENV.fetch("ADMIN_PASS", "")
       end
     }
